@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from 'next/link';
 
 const links = [
@@ -14,11 +15,13 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-borderSubtle bg-background/80 backdrop-blur-xl">
       <div className="container-shell flex min-h-20 items-center justify-between gap-6">
         <Link href="/" className="flex items-center gap-3">
-          <div className="text-lg font-semibold tracking-[0.24em] text-white">PLATINUM ONE</div>
-          <div className="hidden h-6 w-px bg-white/15 md:block" />
-          <div className="hidden text-xs uppercase tracking-[0.26em] text-textMuted md:block">
-            Logistics
-          </div>
+          <Image
+            src="/logo/platinum-one-logo.png"
+            alt="Platinum One Logistics"
+            width={180}
+            height={40}
+            priority
+          />
         </Link>
         <nav className="hidden items-center gap-6 text-sm text-textSecondary md:flex">
           {links.map((link) => (

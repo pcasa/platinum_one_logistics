@@ -31,8 +31,8 @@ const config: Config = {
         'metallic-gradient': 'var(--gradient-metallic)'
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['Georgia', 'Times New Roman', 'serif']
+        sans: ['var(--font-body)', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['var(--font-heading)', 'Georgia', 'Times New Roman', 'serif']
       }
     }
   },

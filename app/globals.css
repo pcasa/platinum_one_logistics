@@ -32,7 +32,7 @@ body {
   margin: 0;
   background: radial-gradient(circle at top right, rgba(196, 30, 42, 0.14), transparent 22%), var(--background);
   color: var(--text-primary);
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--font-body), Inter, system-ui, sans-serif;
 }
 
 a {
@@ -58,9 +58,112 @@ img {
 }
 
 .section-title {
-  @apply font-display text-3xl leading-tight sm:text-4xl md:text-5xl;
+  @apply font-display text-3xl font-semibold leading-[1.05] tracking-tight text-white sm:text-4xl md:text-[2.75rem];
 }
 
 .section-copy {
-  @apply max-w-3xl text-base leading-7 text-textSecondary md:text-lg;
+  @apply max-w-3xl text-base leading-7 text-textMuted md:text-[1.05rem];
+}
+
+.font-display,
+.font-heading {
+  font-family: var(--font-heading), Georgia, serif;
+}
+
+.pl-section {
+  @apply py-16 md:py-20;
+}
+
+.pl-section-tight {
+  @apply py-12 md:py-16;
+}
+
+.pl-container {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.pl-eyebrow {
+  @apply mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-brandPrimary;
+}
+
+.pl-section-heading {
+  @apply font-display text-center text-3xl font-semibold leading-tight text-white sm:text-4xl md:text-5xl;
+}
+
+.pl-section-heading-left {
+  @apply font-display text-3xl font-semibold leading-tight text-white sm:text-4xl md:text-5xl;
+}
+
+.pl-section-divider {
+  @apply mx-auto mt-5 h-[2px] w-20 bg-brandPrimary;
+}
+
+.pl-section-divider-left {
+  @apply mt-5 h-[2px] w-20 bg-brandPrimary;
+}
+
+.pl-section-copy {
+  @apply mt-5 max-w-3xl text-base leading-7 text-textSecondary md:text-lg;
+}
+
+.pl-card {
+  @apply rounded-[24px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.035),rgba(255,255,255,0.015))];
+}
+
+.pl-card-soft {
+  @apply rounded-[24px] border border-white/10 bg-[#111111];
+}
+
+.pl-icon-square {
+  @apply inline-flex h-14 w-14 items-center justify-center rounded-xl bg-[#351014] text-brandGlow;
+}
+
+.pl-icon-circle {
+  @apply inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/45 text-brandPrimary;
+}
+
+.pl-icon-promise {
+  @apply inline-flex h-16 w-16 items-center justify-center rounded-full border text-brandGlow;
+  border-color: rgba(196, 30, 42, 0.25);
+  background-color: rgba(196, 30, 42, 0.10);
+}
+
+.pl-body-muted {
+  @apply text-sm leading-7 text-textMuted;
+}
+
+.pl-body-secondary {
+  @apply text-base leading-7 text-textSecondary;
+}
+
+.pl-hero-title {
+  @apply font-display text-4xl font-semibold leading-[0.98] tracking-tight text-white sm:text-5xl md:text-6xl;
+}
+
+.pl-hero-copy {
+  @apply max-w-3xl text-base leading-8 text-textSecondary md:text-lg;
+}
+
+.pl-section-title {
+  @apply font-display text-center text-3xl font-semibold leading-[1.05] tracking-tight text-white sm:text-4xl md:text-[2.75rem];
+}
+
+.pl-section-title-left {
+  @apply font-display text-3xl font-semibold leading-[1.05] tracking-tight text-white sm:text-4xl md:text-[2.75rem];
+}
+
+.pl-card-title {
+  @apply font-display text-xl font-semibold leading-tight text-white md:text-2xl;
+}
+
+.pl-card-copy {
+  @apply text-sm leading-7 text-textMuted md:text-base;
+}
+
+.pl-nav-link {
+  @apply text-sm font-medium text-textMuted transition-colors hover:text-white;
+}
+
+.pl-nav-link-active {
+  @apply text-sm font-medium text-brandPrimary transition-colors;
 }

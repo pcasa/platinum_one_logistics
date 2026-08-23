@@ -1,5 +1,13 @@
+import type { Metadata } from 'next';
 import Link from "next/link";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: 'White-Glove Logistics & Delivery in Georgia',
+  description: 'Platinum One Logistics delivers full-service white-glove logistics — receiving, storage, delivery, and installation — for interior designers, hospitality, model homes, and relocation across Georgia.',
+  openGraph: { url: 'https://platinumonelogistics.net' },
+};
+import { FadeUp, FadeIn, SlideLeft, SlideRight, StaggerList, StaggerItem, HeroFadeUp } from "@/components/ui/Animate";
 import {
   Truck,
   PackageCheck,
@@ -140,7 +148,7 @@ function SectionHeading({
 }) {
   return (
     <div className="max-w-3xl">
-      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#c41e2a]">
+      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-brandPrimary">
         {eyebrow}
       </p>
       <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
@@ -157,61 +165,59 @@ function SectionHeading({
 
 export default function HomePage() {
   return (
-    <main className="bg-[#050505] text-white">
+    <main id="main-content" className="bg-background text-white">
       <section className="relative isolate overflow-hidden border-b border-white/10">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMAGE})` }}
         />
-        <div className="absolute inset-0 bg-[linear-gradient(95deg,rgba(0,0,0,1.0)_0%,rgba(0,0,0,0.75)_100%)]" />
+        <div className="absolute inset-0 bg-section-overlay" />
 
         <div className="relative mx-auto flex min-h-[88svh] max-w-7xl items-center px-6 py-24 lg:px-8">
-          {/* centered content block, text left-aligned within */}
           <div className="mx-auto w-full max-w-3xl">
-            <div className="mb-6 flex justify-center">
-              <Image
-                src="/logo/platinum-one-logo.png"
-                alt="Platinum One Logistics"
-                width={200}
-                height={46}
-                priority
-              />
-            </div>
+            <HeroFadeUp delay={0} y={20}>
+              <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-brandPrimary">
+                White-Glove Logistics
+              </p>
+              <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-[3.25rem]">
+                Full White-Glove Logistics
+                Services Delivered{" "}
+                <span className="italic text-brandGold">Seamlessly.</span>
+              </h1>
+            </HeroFadeUp>
 
-            <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-[3.25rem]">
-              Full White-Glove Logistics
-              Services Delivered{" "}
-              <span className="italic text-[#c9a843]">Seamlessly.</span>
-            </h1>
+            <HeroFadeUp delay={0.15} y={15}>
+              <p className="mt-6 text-base leading-8 text-white/75 sm:text-lg">
+                From receiving and inspection to delivery, white-glove installation,
+                storage and full relocation services, Platinum One Logistics delivers
+                complete, high-touch logistics solutions tailored for designers,
+                hospitality, model homes, and move-in ready projects.
+              </p>
+            </HeroFadeUp>
 
-            <p className="mt-6 text-base leading-8 text-white/75 sm:text-lg">
-              From receiving and inspection to delivery, white-glove installation,
-              storage and full relocation services, Platinum One Logistics delivers
-              complete, high-touch logistics solutions tailored for designers,
-              hospitality, model homes, and move-in ready projects.
-            </p>
-
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <a
-                href={QUOTE_EMAIL}
-                className="inline-flex items-center justify-center gap-2 rounded bg-[#c41e2a] px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-[#d72633]"
-              >
-                <ArrowRight className="h-4 w-4" />
-                Request a Quote
-              </a>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white/90 transition hover:bg-white/10"
-              >
-                <CalendarDays className="h-4 w-4" />
-                Schedule Delivery
-              </Link>
-            </div>
+            <HeroFadeUp delay={0.25} y={15}>
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <a
+                  href={QUOTE_EMAIL}
+                  className="inline-flex items-center justify-center gap-2 rounded bg-brandPrimary px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-brandHover"
+                >
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  Request a Quote
+                </a>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 rounded border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white/90 transition hover:bg-white/10"
+                >
+                  <CalendarDays className="h-4 w-4" aria-hidden="true" />
+                  Schedule Delivery
+                </Link>
+              </div>
+            </HeroFadeUp>
           </div>
         </div>
       </section>
 
-      <section className="border-y border-white/10 bg-[#1c1c1c]">
+      <section aria-label="Rebranding announcement" className="border-y border-white/10 bg-banner">
         <div className="mx-auto max-w-7xl px-6 py-8 text-center lg:px-8">
           <p className="text-base text-white/60">
             Formerly Design Logistics — Now{" "}
@@ -223,73 +229,67 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[#0a0a0a] px-6 py-20 sm:py-24 lg:px-8">
+      <section aria-labelledby="services-heading" className="bg-background px-6 py-20 sm:py-24 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-14 text-center">
-            <h2 className="font-display text-4xl font-bold text-white sm:text-5xl">
+          <FadeUp className="mb-14 text-center">
+            <h2 id="services-heading" className="font-display text-4xl font-bold text-white sm:text-5xl">
               Our Full-Service Logistics Solutions
             </h2>
-            <div className="mx-auto mt-4 h-[3px] w-20 bg-[#c41e2a]" />
-          </div>
+            <div className="mx-auto mt-4 h-[3px] w-20 bg-brandPrimary" />
+          </FadeUp>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <StaggerList className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {services.map((service) => {
               const Icon = service.icon;
               return (
-                <div
-                  key={service.title}
-                  className="group rounded-xl border border-white/[0.06] bg-[#1a1a1a] p-6 transition duration-300 hover:border-[#c41e2a]/40"
-                >
-                  <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-lg bg-[#3a0f12] transition duration-300 group-hover:bg-[#5a1520]">
-                    <Icon className="h-7 w-7 text-[#c41e2a]" />
+                <StaggerItem key={service.title} y={20}>
+                  <div className="group rounded-xl border border-white/[0.06] bg-card p-6 transition duration-300 hover:border-brandPrimary/40 h-full">
+                    <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-lg bg-iconBg transition duration-300 group-hover:bg-iconBgHover">
+                      <Icon className="h-7 w-7 text-brandPrimary" />
+                    </div>
+                    <h3 className="font-display text-xl font-bold text-white">
+                      {service.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-7 text-white/55">
+                      {service.description}
+                    </p>
                   </div>
-
-                  <h3 className="font-display text-xl font-bold text-white">
-                    {service.title}
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-7 text-white/55">
-                    {service.description}
-                  </p>
-                </div>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerList>
         </div>
       </section>
 
-      <section className="relative isolate overflow-hidden">
+      <section aria-labelledby="done-right-heading" className="relative isolate overflow-hidden">
         {/* Section background image with same mask as hero */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${DONE_RIGHT_IMAGE})` }}
         />
-        <div className="absolute inset-0 bg-[linear-gradient(95deg,rgba(0,0,0,1.0)_0%,rgba(0,0,0,0.75)_100%)]" />
+        <div className="absolute inset-0 bg-section-overlay" />
 
         <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-8">
           <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
 
-            {/* Left: heading + checklist */}
-            <div>
-              <h2 className="font-display text-4xl font-bold leading-tight text-white sm:text-5xl">
+            <SlideLeft x={30}>
+              <h2 id="done-right-heading" className="font-display text-4xl font-bold leading-tight text-white sm:text-5xl">
                 Full-Service White-Glove<br />
                 Logistics.{" "}
-                <span className="italic text-[#c41e2a]">Done Right.</span>
+                <span className="italic text-brandPrimary">Done Right.</span>
               </h2>
-              <div className="mt-4 h-[3px] w-16 bg-[#c41e2a]" />
-
+              <div className="mt-4 h-[3px] w-16 bg-brandPrimary" />
               <ul className="mt-10 space-y-5">
                 {doneRightItems.map((item) => (
                   <li key={item} className="flex items-center gap-4 text-white/80">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[#c41e2a]" />
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-brandPrimary" />
                     <span className="text-base leading-snug">{item}</span>
                   </li>
                 ))}
               </ul>
-            </div>
+            </SlideLeft>
 
-            {/* Right: framed image panel — swap src when the white-glove service photo is available */}
-            <div className="relative">
+            <SlideRight x={30} className="relative">
               <div className="overflow-hidden rounded-2xl border border-white/10">
                 <Image
                   src="/images/center-section-background-image.jpeg"
@@ -299,21 +299,20 @@ export default function HomePage() {
                   className="h-[420px] w-full object-cover"
                 />
               </div>
-              {/* Red L-shaped corner accent */}
-              <div className="pointer-events-none absolute -bottom-3 -left-3 h-16 w-16 border-b-2 border-l-2 border-[#c41e2a]" />
-            </div>
+              <div className="pointer-events-none absolute -bottom-3 -left-3 h-16 w-16 border-b-2 border-l-2 border-brandPrimary" />
+            </SlideRight>
 
           </div>
         </div>
       </section>
 
-      <section className="bg-[#0a0a0a] px-6 py-20 sm:py-24 lg:px-8">
+      <section aria-labelledby="who-we-serve-heading" className="bg-background px-6 py-20 sm:py-24 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-14 text-center">
-            <h2 className="font-display text-4xl font-bold text-white sm:text-5xl">
+            <h2 id="who-we-serve-heading" className="font-display text-4xl font-bold text-white sm:text-5xl">
               Who We Serve
             </h2>
-            <div className="mx-auto mt-4 h-[3px] w-20 bg-[#c41e2a]" />
+            <div className="mx-auto mt-4 h-[3px] w-20 bg-brandPrimary" />
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -333,7 +332,7 @@ export default function HomePage() {
                   <div className="relative flex h-[280px] flex-col justify-end p-5">
                     <div className="mb-2 flex items-center gap-3">
                       <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black/60">
-                        <Icon className="h-4 w-4 text-[#c41e2a]" />
+                        <Icon className="h-4 w-4 text-brandPrimary" />
                       </div>
                       <h3 className="font-display text-lg font-bold text-white">
                         {audience.title}
@@ -350,13 +349,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[#0a0a0a] px-6 py-20 sm:py-24 lg:px-8">
+      <section aria-labelledby="promise-heading" className="bg-background px-6 py-20 sm:py-24 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-16 text-center">
-            <h2 className="font-display text-4xl font-bold text-white sm:text-5xl">
+            <h2 id="promise-heading" className="font-display text-4xl font-bold text-white sm:text-5xl">
               The Platinum One White-Glove Promise
             </h2>
-            <div className="mx-auto mt-4 h-[3px] w-20 bg-[#c41e2a]" />
+            <div className="mx-auto mt-4 h-[3px] w-20 bg-brandPrimary" />
           </div>
 
           <div className="grid gap-12 md:grid-cols-3">
@@ -378,8 +377,8 @@ export default function HomePage() {
               },
             ].map(({ icon: Icon, title, description }) => (
               <div key={title} className="flex flex-col items-center text-center">
-                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#3a0f12]">
-                  <Icon className="h-8 w-8 text-[#c41e2a]" />
+                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-iconBg">
+                  <Icon className="h-8 w-8 text-brandPrimary" />
                 </div>
                 <h3 className="font-display text-xl font-bold text-white">{title}</h3>
                 <p className="mt-3 max-w-xs text-sm leading-7 text-white/55">{description}</p>
@@ -389,17 +388,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[#0a0a0a] px-6 py-20 sm:py-24 lg:px-8">
+      <section aria-labelledby="rates-heading" className="bg-background px-6 py-20 sm:py-24 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid items-center gap-8 lg:grid-cols-[1.3fr_1.35fr_1.35fr]">
 
             {/* Left: heading + CTA */}
             <div>
-              <h2 className="font-display text-4xl font-bold leading-tight text-white">
+              <h2 id="rates-heading" className="font-display text-4xl font-bold leading-tight text-white">
                 Transparent Rates.{" "}
-                <span className="italic text-[#c41e2a]">No Surprises.</span>
+                <span className="italic text-brandPrimary">No Surprises.</span>
               </h2>
-              <div className="mt-4 h-[3px] w-16 bg-[#c41e2a]" />
+              <div className="mt-4 h-[3px] w-16 bg-brandPrimary" />
               <p className="mt-5 text-sm leading-7 text-white/60">
                 Clear, competitive pricing for warehouse and delivery services.
                 View our rate charts.
@@ -408,15 +407,15 @@ export default function HomePage() {
                 href={RATE_SHEET_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-6 inline-flex items-center gap-2 rounded border border-[#c41e2a]/50 px-5 py-2.5 text-sm font-semibold text-[#c41e2a] transition hover:bg-[#c41e2a]/10"
+                className="mt-6 inline-flex items-center gap-2 rounded border border-brandPrimary/50 px-5 py-2.5 text-sm font-semibold text-brandPrimary transition hover:bg-brandPrimary/10"
               >
-                View Rates <ArrowRight className="h-4 w-4" />
+                View Rates <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
             </div>
 
             {/* Warehouse table */}
-            <div className="overflow-hidden rounded-xl border border-white/10 bg-[#0e0e0e]">
-              <div className="bg-gradient-to-r from-[#3a0f12] to-[#1a0608] px-6 py-4">
+            <div className="overflow-hidden rounded-xl border border-white/10 bg-cardTable">
+              <div className="bg-table-header px-6 py-4">
                 <h3 className="font-semibold text-white">Warehouse Rate Chart</h3>
               </div>
               <div className="divide-y divide-white/[0.06]">
@@ -436,8 +435,8 @@ export default function HomePage() {
             </div>
 
             {/* Delivery table */}
-            <div className="overflow-hidden rounded-xl border border-white/10 bg-[#0e0e0e]">
-              <div className="bg-gradient-to-r from-[#3a0f12] to-[#1a0608] px-6 py-4">
+            <div className="overflow-hidden rounded-xl border border-white/10 bg-cardTable">
+              <div className="bg-table-header px-6 py-4">
                 <h3 className="font-semibold text-white">Delivery Rate Chart</h3>
               </div>
               <div className="divide-y divide-white/[0.06]">
@@ -462,19 +461,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="relative isolate overflow-hidden border-t border-white/10">
+      <section aria-labelledby="contact-cta-heading" className="relative isolate overflow-hidden border-t border-white/10">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${CONTACT_BG_IMAGE})` }}
         />
-        <div className="absolute inset-0 bg-[linear-gradient(95deg,rgba(0,0,0,1.0)_0%,rgba(0,0,0,0.82)_100%)]" />
+        <div className="absolute inset-0 bg-section-overlay-dark" />
 
         <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
 
             {/* Left: heading + contact info */}
             <div>
-              <h2 className="font-display text-3xl font-bold text-white lg:text-4xl">
+              <h2 id="contact-cta-heading" className="font-display text-3xl font-bold text-white lg:text-4xl">
                 Let&apos;s Get Your Project Moving
               </h2>
               <p className="mt-4 max-w-lg text-base leading-7 text-white/70">
@@ -483,17 +482,17 @@ export default function HomePage() {
 
               <div className="mt-8 space-y-5">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#c41e2a]/15 ring-1 ring-[#c41e2a]/30">
-                    <Phone className="h-4 w-4 text-[#c41e2a]" />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brandPrimary/15 ring-1 ring-brandPrimary/30">
+                    <Phone className="h-4 w-4 text-brandPrimary" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-xs text-white/45">Michelle Casanova</p>
-                    <p className="font-semibold text-white">(661) 208-7228</p>
+                    <a href="tel:+17703688900" className="font-semibold text-white hover:text-white/80 transition-colors">(770) 368-8900</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#c41e2a]/15 ring-1 ring-[#c41e2a]/30">
-                    <Mail className="h-4 w-4 text-[#c41e2a]" />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brandPrimary/15 ring-1 ring-brandPrimary/30">
+                    <Mail className="h-4 w-4 text-brandPrimary" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-xs text-white/45">Email Us</p>
@@ -515,9 +514,9 @@ export default function HomePage() {
               </p>
               <a
                 href={QUOTE_EMAIL}
-                className="mt-6 flex w-full items-center justify-center gap-2 rounded bg-[#c41e2a] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#d72633]"
+                className="mt-6 flex w-full items-center justify-center gap-2 rounded bg-brandPrimary px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-brandHover"
               >
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 Get Your Free Quote
               </a>
             </div>

@@ -2,22 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Accessibility ─────────────────────────────────────────────────── */
+
+/* Global focus-visible ring for keyboard navigation */
+:focus-visible {
+  outline: 2px solid #c41e2a;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Suppress focus ring on mouse/touch interactions */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* CSS-level prefers-reduced-motion fallback (Animate.tsx handles JS layer) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── CSS variables ─────────────────────────────────────────────────── */
+/* CSS variables — used for style={{}} props and non-Tailwind CSS.
+   Tailwind classes use hardcoded values in tailwind.config.ts (more reliable for JIT). */
 :root {
-  --background: #0A0A0A;
-  --background-alt: #000000;
-  --surface: #151515;
-  --surface-elevated: #202020;
-  --text-primary: #FFFFFF;
-  --text-secondary: #C8C8C8;
-  --text-muted: #8D8D8D;
-  --brand-primary: #C41E2A;
-  --brand-accent: #E02828;
-  --brand-glow: #FF4D57;
-  --border-subtle: rgba(255,255,255,0.08);
-  --gradient-hero: linear-gradient(135deg, rgba(196,30,42,0.28) 0%, rgba(0,0,0,0.78) 42%, rgba(0,0,0,0.94) 100%);
-  --gradient-panel: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
-  --gradient-red-glow: linear-gradient(90deg, #C41E2A 0%, #E02828 55%, #FF4D57 100%);
-  --gradient-metallic: linear-gradient(90deg, #8E8E8E 0%, #D7D7D7 50%, #8E8E8E 100%);
+  /* Backgrounds */
+  --background:        #0A0A0A;
+  --background-alt:    #000000;
+  --background-alt2:   #080808;
+  --footer:            #111111;
+  --banner:            #1C1C1C;
+
+  /* Surfaces / Cards */
+  --surface:           #151515;
+  --surface-elevated:  #202020;
+  --card:              #1A1A1A;
+  --card-table:        #0E0E0E;
+
+  /* Icon containers */
+  --icon-bg:           #3A0F12;
+  --icon-bg-hover:     #5A1520;
+
+  /* Text */
+  --text-primary:      #FFFFFF;
+  --text-secondary:    #C8C8C8;
+  --text-muted:        #8D8D8D;
+
+  /* Brand */
+  --brand-primary:     #C41E2A;
+  --brand-hover:       #D72633;
+  --brand-accent:      #E02828;
+  --brand-glow:        #FF4D57;
+  --brand-gold:        #C9A843;
+
+  /* Borders */
+  --border-subtle:     rgba(255,255,255,0.06);
+  --border-medium:     rgba(255,255,255,0.10);
+  --border-strong:     rgba(255,255,255,0.16);
+  --border-brand:      rgba(196,30,42,0.40);
+
+  /* Gradients */
+  --gradient-section-overlay:      linear-gradient(95deg, rgba(0,0,0,1.0) 0%, rgba(0,0,0,0.75) 100%);
+  --gradient-section-overlay-dark: linear-gradient(95deg, rgba(0,0,0,1.0) 0%, rgba(0,0,0,0.82) 100%);
+  --gradient-table-header:         linear-gradient(to right, #3A0F12, #1A0608);
+  --gradient-panel:                linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+  --gradient-red-glow:             linear-gradient(90deg, #C41E2A 0%, #E02828 55%, #FF4D57 100%);
+  --gradient-metallic:             linear-gradient(90deg, #8E8E8E 0%, #D7D7D7 50%, #8E8E8E 100%);
 }
 
 * {
